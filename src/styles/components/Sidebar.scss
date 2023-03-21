@@ -1,0 +1,75 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    // left: 0;
+    padding-top: 5rem;
+    height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+    z-index: 10;
+    overflow: auto;
+    background: white;
+    color: var(--dark-blue);
+    width: 283px;
+    font-size: var(--default-size);
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.1);
+
+    .menusOrg {
+        padding: 0 2rem;
+        margin: 2rem 0;
+
+        .menuOrg {
+            margin: 0 1rem;
+        }
+    }
+
+    .dashboard {
+        padding: 0 2rem;
+        padding-bottom: 1rem;
+
+        .dash {
+            margin-left: 1rem;
+            opacity: .9;
+        }
+    }
+
+    .menus {
+        padding: .8rem 2rem;
+        display: flex;
+        align-items: center;
+
+        .menuName {
+            margin-left: 1rem;
+            text-transform: capitalize;
+            opacity: .9;
+        }
+    }
+
+    .menus:hover {
+        background: var(--hover-color);
+        border-left: 2px solid var(--dark-blue);
+        cursor: pointer;
+    }
+
+    .menuList ul {
+        list-style: none;
+
+        .heading {
+            padding: 0 2rem;
+            margin-top: 1.5rem;
+            margin-bottom: .5rem;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+    }
+
+    .logout {
+        padding: 1rem 0;
+
+        .version {
+            padding: 0 2rem;
+            font-size: 12px;
+            margin-top: 1rem;
+        }
+    }
+}

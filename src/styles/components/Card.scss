@@ -1,0 +1,28 @@
+.card {
+    width: 225px;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 5px;
+
+    .icon-bkg {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+
+    .nameOfCard {
+        display: block;
+        font-size: 14px;
+        text-transform: uppercase;
+        margin: .8rem 0;
+    }
+
+    .numOnCard {
+        font-size: 24px;
+        color: var(--dark-blue);
+        font-weight: bold;
+    }
+}

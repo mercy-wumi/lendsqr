@@ -1,0 +1,14 @@
+.users {
+
+    .user-heading {
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--dark-blue);
+    }
+
+    .card-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 2rem 0;
+    }
+}
