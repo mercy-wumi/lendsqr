@@ -1,11 +1,12 @@
-import Card from './Card'
+import Card from '../components/Card'
 import '../styles/components/User.scss'
 
 import activeUser from '../images/active-user.png'
 import userSavings from '../images/user-savings.png'
 import loanUser from '../images/loan-user.png'
 import userIcon from '../images/user-icon.png'
-import Filter from './Filter'
+import Filter from '../components/Filter'
+import UserTable from '../components/UserTable'
 
 const cards = [
     {
@@ -35,8 +36,9 @@ const cards = [
 ]
 
 
-const User = () => {
+const Users = () => {
     return (
+
         <div className='users'>
             <h3 className='user-heading'>Users</h3>
             <div className='card-container'>
@@ -44,9 +46,10 @@ const User = () => {
                     <Card card={card} key={index} />
                 ))}
             </div>
-            <Filter />
+            {/* <Filter /> */}
+            <UserTable />
         </div>
     )
 }
 
-export default User
+export default Users

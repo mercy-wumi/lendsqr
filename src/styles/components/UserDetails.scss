@@ -1,0 +1,121 @@
+.user-details {
+    margin-left: 283px;
+    padding: 3rem;
+    width: 100%;
+
+    .backToUsers {
+        .backArrow {
+            margin-right: 1rem;
+        }
+    }
+
+    .headLines {
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem 0;
+
+        .user-heading {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--dark-blue);
+        }
+
+        .user-btn {
+
+            .blacklist,
+            .activate {
+                padding: .6rem 1rem;
+                border-radius: 10px;
+                background: inherit;
+                text-transform: uppercase;
+                font-weight: 600;
+            }
+
+            .blacklist {
+                border: 1.5px solid red;
+                color: red;
+                margin-right: 20px;
+            }
+
+            .activate {
+                border: 1.5px solid var(--teal-green);
+                color: var(--teal-green);
+            }
+        }
+    }
+
+    .profile {
+        padding: 2rem;
+        padding-bottom: 0;
+        background: white;
+        border-radius: 5px;
+
+        .userInfo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+
+            .name {
+                font-size: 24px;
+                font-weight: 800;
+                margin-bottom: 5px;
+                color: var(--dark-blue);
+            }
+
+            .userImg {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                background: var(--bkg-color);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            //            .nameOfUser {}
+
+            .userAcc,
+            .nameOfUser {
+                display: flex;
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+
+            .userTier {
+                padding: 1.5rem;
+                border-left: 1px solid var(--bkg-color);
+                border-right: 1px solid var(--bkg-color);
+
+                .rating {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                }
+            }
+
+            .userAcc {
+                .acc {
+                    color: var(--dark-blue);
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .tabs {
+        display: flex;
+        justify-content: space-between;
+
+        .active {
+            border-bottom: 2px solid var(--teal-green);
+            color: var(--teal-green);
+            padding: 0 10px;
+        }
+
+        .tab {
+            font-weight: 500;
+            cursor: pointer;
+            opacity: 0.8;
+        }
+    }
+}

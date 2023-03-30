@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import '../styles/components/Sidebar.scss'
 
 import home from '../images/home.png'
@@ -30,34 +31,42 @@ const menus = [
         heading: 'customers',
         list: [
             {
+                link: '/users',
                 img: users,
                 listName: 'users',
             },
             {
+                link: '/',
                 img: guarantors,
                 listName: 'guarantors',
             },
             {
+                link: '',
                 img: sack,
                 listName: 'loans',
             },
             {
+                link: '',
                 img: handshake,
                 listName: 'decision models',
             },
             {
+                link: '',
                 img: saving,
                 listName: 'savings',
             },
             {
+                link: '',
                 img: request,
                 listName: 'loan requests',
             },
             {
+                link: '',
                 img: whitelist,
                 listName: 'whitelist',
             },
             {
+                link: '',
                 img: karma,
                 listName: 'karma',
             }
@@ -67,38 +76,47 @@ const menus = [
         heading: 'businesses',
         list: [
             {
+                link: '',
                 img: briefcase,
                 listName: 'Organization',
             },
             {
+                link: '',
                 img: request,
                 listName: 'loan products',
             },
             {
+                link: '',
                 img: savingProduct,
                 listName: 'saving products',
             },
             {
+                link: '',
                 img: fees,
                 listName: 'fees and charges',
             },
             {
+                link: '',
                 img: transac,
                 listName: 'transactions',
             },
             {
+                link: '',
                 img: services,
                 listName: 'services',
             },
             {
+                link: '',
                 img: serviceAcc,
                 listName: 'service account',
             },
             {
+                link: '',
                 img: settlements,
                 listName: 'settlements',
             },
             {
+                link: '',
                 img: report,
                 listName: 'reports',
             },
@@ -108,18 +126,22 @@ const menus = [
         heading: 'settings',
         list: [
             {
+                link: '',
                 img: preferences,
                 listName: 'preferences',
             },
             {
+                link: '',
                 img: badge,
                 listName: 'fees and pricing',
             },
             {
+                link: '',
                 img: audit,
                 listName: 'audit logs',
             },
             {
+                link: '',
                 img: systems,
                 listName: 'systems messages',
             },
@@ -145,10 +167,12 @@ const Sidebar = () => {
                         <ul>
                             {menu.list.map((list, index) => (
                                 <li key={index}>
-                                    <div className='menus'>
+                                    <NavLink to={list.link} className={({ isActive }) =>
+                                        isActive ? "active" : "menus"
+                                    }>
                                         <img src={list.img} alt="menu icon" />
                                         <span className='menuName'>{list.listName}</span>
-                                    </div>
+                                    </NavLink>
                                 </li>
                             ))}
                         </ul>

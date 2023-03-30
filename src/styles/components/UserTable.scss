@@ -1,0 +1,103 @@
+.user-table {
+    background: white;
+    padding: 1rem 0;
+    border-radius: 5px;
+    color: var(--text-gray);
+
+    table {
+        width: 100%;
+        text-align: left;
+        border-spacing: 0;
+
+        th,
+        td {
+            padding: .8rem 1rem;
+        }
+
+        .rows {
+            margin-bottom: .5rem;
+
+            .head {
+                font-weight: 600;
+                font-size: 12px;
+                text-transform: uppercase;
+
+                .th-row {
+                    display: flex;
+                    align-items: center;
+
+                    .filter {
+                        margin-left: 10px;
+                    }
+
+                }
+            }
+        }
+
+        tbody {
+            .td-row {
+                font-size: 14px;
+                cursor: pointer;
+                border-bottom: 1px solid #ddd;
+
+                .btn {
+                    padding: .5rem 1rem;
+                    border-radius: 50px;
+                    background: inherit;
+                    border: 0;
+                }
+
+                .active {
+                    color: var(--active);
+                    background: var(--active-bg);
+                }
+
+                .pending {
+                    color: var(--pending);
+                    background: var(--pending-bg);
+                }
+
+                .blacklisted {
+                    color: var(--blacklisted);
+                    background: var(--blacklisted-bg);
+                }
+
+                .inactive {
+                    color: var(--inactive);
+                    background: var(--inactive-bg);
+                }
+
+                .showingOptions {
+                    position: relative;
+
+                    .moreOptions {
+                        position: absolute;
+                        left: 0;
+                        z-index: 30;
+                        padding: .2rem 1.5rem;
+                        background: white;
+                        border-radius: 5px;
+                        width: fit-content;
+                        height: fit-content;
+
+                        .options {
+                            padding: .5rem 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .optionImg {
+                                margin-right: 10px;
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            .td-row:hover {
+                background: var(--hover-color);
+            }
+        }
+    }
+}

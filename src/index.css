@@ -2,7 +2,17 @@
   --primary-blue: #39CDCC;
   --dark-blue: #213F7D;
   --teal-green: #39CDCC;
-  --bkg-color: rgb(242, 242, 242);
+  --text-gray: #545F7D;
+  --active: #39CD62;
+  --active-bg: rgba(57, 205, 98, 0.06);
+  --inactive: #545F7D;
+  --inactive-bg: rgba(84, 95, 125, 0.06);
+  --pending: #E9B200;
+  --pending-bg: rgba(233, 178, 0, 0.06);
+  --bkg-color: #E5E5E5;
+  --blacklisted: #E4033B;
+  --blacklisted-bg: rgba(228, 3, 59, 0.06);
+  --bkg-opacity: rgba(242, 242, 242, 0.4);
   --hover-color: rgb(230, 250, 255, 0.3);
   --default-size: 16px;
 }
@@ -13,10 +23,10 @@
   margin: 0;
 }
 
-/* html,
+html,
 body {
-  background: var(--bkg-color);
-} */
+  font-family: 'Work Sans', sans-serif;
+}
 
 .app {
   max-width: 1400px;

@@ -1,8 +1,7 @@
 import Navbar from "../components/Navbar"
-import Main from "../components/Main"
 import '../styles/pages/Dashboard.scss'
 import Sidebar from "../components/Sidebar"
-
+import { Outlet } from "react-router-dom"
 
 const Dashboard = () => {
     return (
@@ -10,7 +9,9 @@ const Dashboard = () => {
             <Navbar />
             <div className='main-container'>
                 <Sidebar />
-                <Main />
+                <>
+                    <Outlet />
+                </>
             </div>
         </div>
     )

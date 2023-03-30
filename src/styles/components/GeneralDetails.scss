@@ -1,0 +1,38 @@
+.general {
+    background: white;
+    border-radius: 5px;
+    padding: 0 2rem;
+    margin: 2rem 0;
+    color: var(--text-gray);
+
+    .personalInfo {
+        padding: 2rem 0;
+        border-bottom: 1px solid #ddd;
+
+        p {
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .info {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+
+            .personal {
+                display: flex;
+                flex-direction: column;
+
+                .caption {
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    margin-bottom: 10px;
+                }
+
+                .values {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

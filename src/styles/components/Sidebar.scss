@@ -19,7 +19,7 @@
         margin: 2rem 0;
 
         .menuOrg {
-            margin: 0 1rem;
+            margin: 0 .8rem;
         }
     }
 
@@ -33,10 +33,13 @@
         }
     }
 
+    .active,
     .menus {
         padding: .8rem 2rem;
         display: flex;
         align-items: center;
+        text-decoration: none;
+        color: inherit;
 
         .menuName {
             margin-left: 1rem;
@@ -45,10 +48,10 @@
         }
     }
 
+    .active,
     .menus:hover {
         background: var(--hover-color);
         border-left: 2px solid var(--dark-blue);
-        cursor: pointer;
     }
 
     .menuList ul {

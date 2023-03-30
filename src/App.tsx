@@ -1,5 +1,5 @@
-import Dashboard from "./pages/Dashboard";
-import Login from "./pages/Login";
+import Dashboard from "./routes/Dashboard";
+import Login from "./routes/Login";
 
 
 function App() {

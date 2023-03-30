@@ -1,0 +1,21 @@
+.moreOptions {
+    position: absolute;
+    left: 0;
+    z-index: 30;
+    padding: .2rem 1.5rem;
+    background: white;
+    border-radius: 5px;
+    width: fit-content;
+
+    .options {
+        padding: .5rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .optionImg {
+            margin-right: 10px;
+        }
+    }
+
+}
