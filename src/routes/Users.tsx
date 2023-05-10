@@ -1,12 +1,15 @@
+import { useContext, useEffect } from 'react'
 import Card from '../components/Card'
 import '../styles/components/User.scss'
 
+import { UserContext } from '../context/UserContext'
 import activeUser from '../images/active-user.png'
 import userSavings from '../images/user-savings.png'
 import loanUser from '../images/loan-user.png'
 import userIcon from '../images/user-icon.png'
 import Filter from '../components/Filter'
 import UserTable from '../components/UserTable'
+import Pagination from '../components/Pagination'
 
 const cards = [
     {
@@ -35,8 +38,35 @@ const cards = [
     }
 ]
 
+// const { state: { userId }, dispatch } = useContext(UserContext)
+
+
+// export const loader = async () => {
+//     const resp = await fetch(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${userId}`)
+//     const user = await resp.json()
+//     dispatch({
+//         type: 'get_user',
+//         payload: user
+//     })
+//     return user
+// }
+
 
 const Users = () => {
+    const { state: { userId }, dispatch } = useContext(UserContext)
+
+
+    useEffect(() => {
+        const loader = async () => {
+            const resp = await fetch('https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users')
+            const users = await resp.json()
+            dispatch({
+                type: 'get_all_users',
+                payload: users
+            })
+        }
+        loader()
+    }, [])
     return (
 
         <div className='users'>
@@ -48,6 +78,7 @@ const Users = () => {
             </div>
             {/* <Filter /> */}
             <UserTable />
+            <Pagination />
         </div>
     )
 }

@@ -1,4 +1,8 @@
 import '../../styles/components/GeneralDetails.scss'
+import { useContext } from 'react'
+import { UserContext } from '../../context/UserContext'
+import { User } from '../../@types/global'
+import { useLoaderData } from 'react-router-dom'
 
 const general = {
     personal: {
@@ -22,76 +26,83 @@ const general = {
 }
 
 const GeneralDetails = () => {
-    return (
-        <div className='general'>
-            <div className='personalInfo'>
-                <p>Personal Information</p>
-                <div className='info'>
-                    <div className="personal">
-                        <span className='caption'>Full Name</span>
-                        <span className='values'>{general.personal.fullname}</span>
-                    </div>
-                    <div className="personal">
-                        <span className='caption'>Phone Number</span>
-                        <span className='values'>{general.personal.phone}</span>
-                    </div>
-                    <div className="personal">
-                        <span className='caption'>Email Address</span>
-                        <span className='values'>{general.personal.email}</span>
-                    </div>
-                    <div className="personal">
-                        <span className='caption'>bvn</span>
-                        <span className='values'>{general.personal.bvn}</span>
-                    </div>
-                    <div className="personal">
-                        <span className='caption'>Marital Status</span>
-                        <span className='values'>{general.personal.status}</span>
-                    </div>
-                    <div className="personal">
-                        <span className='caption'>Children</span>
-                        <span className='values'>{general.personal.children}</span>
-                    </div>
-                    <div className="personal">
-                        <span className='caption'>Type of Residence</span>
-                        <span className='values'>{general.personal.residence}</span>
-                    </div>
-                </div>
-            </div>
+    const { state: { user }, dispatch } = useContext(UserContext)
+    console.log(user)
 
-            <div className='personalInfo'>
-                <p>Personal Information</p>
-                <div className='info'>
-                    <div className="personal">
-                        <span className='caption'>Full Name</span>
-                        <span className='values'>{general.personal.fullname}</span>
+    // const {user} = useLoaderData() as User
+    return (
+        <>
+            {user ?
+                <div className='general'>
+                    <div className='personalInfo'>
+                        <p>Personal Information</p>
+                        <div className='info'>
+                            <div className="personal">
+                                <span className='caption'>Full Name</span>
+                                <span className='values'>{user.profile.firstName}</span>
+                            </div>
+                            <div className="personal">
+                                <span className='caption'>Phone Number</span>
+                                <span className='values'>{user.phoneNumber}</span>
+                            </div>
+                            <div className="personal">
+                                <span className='caption'>Email Address</span>
+                                <span className='values'>{user.email}</span>
+                            </div>
+                            <div className="personal">
+                                <span className='caption'>bvn</span>
+                                <span className='values'>{user.profile.bvn}</span>
+                            </div>
+                            <div className="personal">
+                                <span className='caption'>Marital Status</span>
+                                <span className='values'>Single</span>
+                            </div>
+                            <div className="personal">
+                                <span className='caption'>Children</span>
+                                <span className='values'>None</span>
+                            </div>
+                            <div className="personal">
+                                <span className='caption'>Type of Residence</span>
+                                <span className='values'>Parental Residence</span>
+                            </div>
+                        </div>
                     </div>
-                    <div className="personal">
-                        <span className='caption'>Phone Number</span>
-                        <span className='values'>{general.personal.phone}</span>
-                    </div>
-                    <div className="personal">
-                        <span className='caption'>Email Address</span>
-                        <span className='values'>{general.personal.email}</span>
-                    </div>
-                    <div className="personal">
-                        <span className='caption'>bvn</span>
-                        <span className='values'>{general.personal.bvn}</span>
-                    </div>
-                    <div className="personal">
-                        <span className='caption'>Marital Status</span>
-                        <span className='values'>{general.personal.status}</span>
-                    </div>
-                    <div className="personal">
-                        <span className='caption'>Children</span>
-                        <span className='values'>{general.personal.children}</span>
-                    </div>
-                    <div className="personal">
-                        <span className='caption'>Type of Residence</span>
-                        <span className='values'>{general.personal.residence}</span>
+                    <div className='personalInfo'>
+                        <p>Personal Information</p>
+                        <div className='info'>
+                            <div className="personal">
+                                <span className='caption'>Full Name</span>
+                                <span className='values'>{user.profile.firstName}</span>
+                            </div>
+                            <div className="personal">
+                                <span className='caption'>Phone Number</span>
+                                <span className='values'>{user.phoneNumber}</span>
+                            </div>
+                            <div className="personal">
+                                <span className='caption'>Email Address</span>
+                                <span className='values'>{user.email}</span>
+                            </div>
+                            <div className="personal">
+                                <span className='caption'>bvn</span>
+                                <span className='values'>{user.profile.bvn}</span>
+                            </div>
+                            <div className="personal">
+                                <span className='caption'>Marital Status</span>
+                                <span className='values'>Single</span>
+                            </div>
+                            <div className="personal">
+                                <span className='caption'>Children</span>
+                                <span className='values'>None</span>
+                            </div>
+                            <div className="personal">
+                                <span className='caption'>Type of Residence</span>
+                                <span className='values'>Parental Residence</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                : <div>Loading...</div>}
+        </>
     )
 }
 

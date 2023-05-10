@@ -1,8 +1,17 @@
+import React from 'react'
 import '../styles/components/Filter.scss'
 
-const Filter = () => {
+type hideFilter = {
+    openFilter: boolean,
+    filterRef: any
+}
+
+const Filter: React.FC<hideFilter> = ({ openFilter, filterRef }) => {
+    const handleBtn = (e: any) => {
+        e.preventDefault()
+    }
     return (
-        <div className='filter'>
+        <div className={`${openFilter ? 'show' : 'hide'} filter`} ref={filterRef}>
             <form>
                 <label htmlFor="org">Organization</label>
                 <select name="org" id="org">
@@ -23,8 +32,8 @@ const Filter = () => {
                     <option value="lendsqr">Lendsqr</option>
                 </select>
                 <div className='btns'>
-                    <button className='reset'>Reset</button>
-                    <button className='filter-btn'>Filter</button>
+                    <button className='reset' onClick={handleBtn}>Reset</button>
+                    <button className='filter-btn' onClick={handleBtn}>Filter</button>
                 </div>
             </form>
         </div>

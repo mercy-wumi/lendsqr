@@ -3,6 +3,9 @@ import blacklist from '../images/blacklist.png'
 import view from '../images/view.png'
 
 import '../styles/components/MoreOptions.scss'
+import { UserContext } from '../context/UserContext'
+import { useContext, useState } from 'react'
+
 
 const options = [
     {
@@ -18,9 +21,15 @@ const options = [
         option: 'activate user'
     }
 ]
-const MoreOptions = () => {
+type idType = {
+    showMoreOptions: boolean
+}
+const MoreOptions: React.FC<idType> = ({ showMoreOptions }) => {
+    const [show, setShow] = useState(false)
+    const { state: { userId }, dispatch } = useContext(UserContext)
+
     return (
-        <div className='moreOptions'>
+        <div className={`${showMoreOptions ? 'show' : 'hide'} moreOptions`}>
             {options.map((option, index) => (
                 <div className='options' key={index}>
                     <img src={option.img} alt={option.option} className='optionImg' />

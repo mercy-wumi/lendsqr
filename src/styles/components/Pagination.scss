@@ -1,0 +1,19 @@
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--text-gray);
+
+    span,
+    select {
+        margin-right: 0.8rem;
+    }
+
+    select {
+        border: none;
+        border-radius: 5px;
+        background: var(--hover-color);
+        padding: 5px;
+    }
+}

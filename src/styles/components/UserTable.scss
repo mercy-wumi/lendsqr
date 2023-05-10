@@ -1,7 +1,9 @@
 .user-table {
-    background: white;
+    background: rgba(253, 253, 253, 1) !important;
     padding: 1rem 0;
     border-radius: 5px;
+    font-weight: 500;
+    position: relative;
     color: var(--text-gray);
 
     table {
@@ -16,6 +18,7 @@
 
         .rows {
             margin-bottom: .5rem;
+            position: relative;
 
             .head {
                 font-weight: 600;
@@ -23,10 +26,16 @@
                 text-transform: uppercase;
 
                 .th-row {
-                    display: flex;
-                    align-items: center;
+                    // position: relative;
 
-                    .filter {
+                    .head-column {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .filter-img {
+                        background: inherit;
+                        width: fit-content;
                         margin-left: 10px;
                     }
 
@@ -35,7 +44,9 @@
         }
 
         tbody {
+
             .td-row {
+                // position: relative;
                 font-size: 14px;
                 cursor: pointer;
                 border-bottom: 1px solid #ddd;
@@ -67,17 +78,27 @@
                     background: var(--inactive-bg);
                 }
 
-                .showingOptions {
-                    position: relative;
+                .showOptions {
+                    // position: relative;
+
+                    .show {
+                        display: block;
+                    }
+
+                    .hide {
+                        display: none
+                    }
 
                     .moreOptions {
                         position: absolute;
-                        left: 0;
+                        right: 0;
+                        margin-left: auto;
+                        // margin-right: -50;
                         z-index: 30;
                         padding: .2rem 1.5rem;
                         background: white;
                         border-radius: 5px;
-                        width: fit-content;
+                        width: 180px;
                         height: fit-content;
 
                         .options {

@@ -1,14 +1,36 @@
-// export type Users = {
-//     users: User[]
+//dispatch types 
+
+// interface IActionInterface {
+//     type: string;
 // }
+
+// interface IGetUsersInterface extends IActionInterface { 
+//     payload: User[];
+// }
+
+// interface IGetUserInterface extends IActionInterface {
+//    payload: User;
+// }
+// interface ISetUserIdInterface extends IActionInterface {
+//    payload: string;
+// }
+// interface IProfileInterface extends IActionInterface {
+//    payload: string;
+// }
+
+// type ActionTypes = IGetUsersInterface | IGetUserInterface | ISetUserIdInterface | IProfileInterface;
+
+// types for useContext
 
 export type Props = {
     children: React.ReactNode
 }
 
+// state types
 export type UserType = {
     users: User[],
-    user: string,
+    user: User,
+    userId: string,
     profileLogin: string,
 }
 
@@ -59,6 +81,7 @@ export interface Education {
   loanRepayment: string;
 }
 
+// card types
 
 export type card = {
     card: Card

@@ -8,18 +8,7 @@ import Dashboard from './routes/Dashboard';
 import UserDetails from './routes/UserDetails';
 import Users from './routes/Users';
 import UserContextProvider from './context/UserContext'
-
-const loader = async () => {
-  const resp = await fetch('https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users')
-  const users = await resp.json()
-  return users
-}
-
-// const loaderId = async ({params}: any) => {
-//   const resp = await fetch(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${params.userId}`)
-//   const user = await resp.json()
-//   return user
-// }
+// import { loader as userLoader } from './routes/Users'
 
 const router = createBrowserRouter([
   {
@@ -29,12 +18,12 @@ const router = createBrowserRouter([
       {
         path: "/users",
         element: <Users />,
-        loader: loader,
+        // loader: userLoader,
       },
       {
-        path: "/users/:userId",
+        path: "/userdetails",
         element: <UserDetails />,
-        // loader: loaderId
+        // loader: userLoader
       },
     ]
   },

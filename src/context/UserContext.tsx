@@ -1,15 +1,16 @@
 import { createContext, useReducer } from "react";
-import { UserType, Props } from "../@types/global";
-import { userReducer } from "../reducers/userReducer";
+import { UserType, Props, User } from "../@types/global";
+import { userReducer, Action } from "../reducers/userReducer";
 
 const initialState = {
     users: [],
-    user: '',
+    user: {} as User,
+    userId: '',
     profileLogin: ''
 }
 export const UserContext = createContext<{
     state: UserType;
-    dispatch: React.Dispatch<any>;
+    dispatch: React.Dispatch<Action>;
 }>(
     {
         state: initialState,
