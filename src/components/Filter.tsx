@@ -1,17 +1,31 @@
-import React from 'react'
+import { useEffect, useRef } from 'react'
 import '../styles/components/Filter.scss'
+import { hideFilter } from '../@types/global'
 
-type hideFilter = {
-    openFilter: boolean,
-    filterRef: any
-}
 
-const Filter: React.FC<hideFilter> = ({ openFilter, filterRef }) => {
+const Filter: React.FC<hideFilter> = ({ showFilter, close }) => {
+
+    const filterRef = useRef<HTMLDivElement>(null)
+
+    // check for a better approach
     const handleBtn = (e: any) => {
         e.preventDefault()
     }
+
+    useEffect(() => {
+        let handler = (e: MouseEvent) => {
+            if (filterRef.current && !filterRef.current.contains(e.target as Node)) {
+                close()
+            }
+        }
+        document.addEventListener('mousedown', handler)
+        return () => {
+            document.removeEventListener('mousedown', handler)
+        }
+    })
+
     return (
-        <div className={`${openFilter ? 'show' : 'hide'} filter`} ref={filterRef}>
+        <div className={`${showFilter ? 'show' : 'hide'} filter`} ref={filterRef}>
             <form>
                 <label htmlFor="org">Organization</label>
                 <select name="org" id="org">

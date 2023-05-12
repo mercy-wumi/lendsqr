@@ -6,6 +6,8 @@ const initialState = {
     users: [],
     user: {} as User,
     userId: '',
+    userPerPage: '10',
+    userOffSet: 0,
     profileLogin: ''
 }
 export const UserContext = createContext<{

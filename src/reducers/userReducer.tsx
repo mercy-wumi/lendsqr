@@ -4,6 +4,8 @@ export type Action =
     | { type: 'get_all_users', payload: User[] }
     | { type: 'get_user', payload: User }
     | { type: 'set_user_id', payload: string }
+    | { type: 'set_user_per_page', payload: string }
+    | { type: 'set_user_offset', payload: number }
     | { type: 'profile_to_login', payload: string };
 
 export const userReducer = (state: UserType, action: Action) => {
@@ -24,6 +26,18 @@ export const userReducer = (state: UserType, action: Action) => {
             return {
                 ...state,
                 userId: action.payload
+            }
+        }
+        case 'set_user_offset': {
+            return {
+                ...state,
+                userOffSet: action.payload
+            }
+        }
+        case 'set_user_per_page': {
+            return {
+                ...state,
+                userPerPage: action.payload
             }
         }
         case 'profile_to_login': {

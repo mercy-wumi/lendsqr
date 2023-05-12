@@ -7,7 +7,6 @@ import activeUser from '../images/active-user.png'
 import userSavings from '../images/user-savings.png'
 import loanUser from '../images/loan-user.png'
 import userIcon from '../images/user-icon.png'
-import Filter from '../components/Filter'
 import UserTable from '../components/UserTable'
 import Pagination from '../components/Pagination'
 
@@ -53,7 +52,11 @@ const cards = [
 
 
 const Users = () => {
-    const { state: { userId }, dispatch } = useContext(UserContext)
+    const { state: { users, userPerPage, userOffSet }, dispatch } = useContext(UserContext)
+
+    const endOffset = userOffSet + parseInt(userPerPage);
+    console.log(`Loading items from ${userOffSet} to ${endOffset}`);
+    const currentItems = users.slice(userOffSet, endOffset);
 
 
     useEffect(() => {
@@ -76,8 +79,7 @@ const Users = () => {
                     <Card card={card} key={index} />
                 ))}
             </div>
-            {/* <Filter /> */}
-            <UserTable />
+            <UserTable currentItems={currentItems} />
             <Pagination />
         </div>
     )

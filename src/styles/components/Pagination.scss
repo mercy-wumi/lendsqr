@@ -16,4 +16,21 @@
         background: var(--hover-color);
         padding: 5px;
     }
+
+    .paginate {
+        display: flex;
+        list-style: none;
+
+        .next,
+        .previous {
+            background: var(--hover-color);
+            border-radius: 5px;
+            font-weight: bolder;
+        }
+
+        li {
+            padding: .3rem .5rem;
+            cursor: pointer;
+        }
+    }
 }

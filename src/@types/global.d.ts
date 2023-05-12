@@ -31,6 +31,8 @@ export type UserType = {
     users: User[],
     user: User,
     userId: string,
+    userPerPage: string,
+    userOffSet: number,
     profileLogin: string,
 }
 
@@ -95,4 +97,17 @@ export interface Card {
 
 export type btn = {
     text: string,
+}
+
+// filter type
+
+export type hideFilter = {
+    showFilter: boolean,
+    close: () => void
+}
+
+// paginate type
+
+export type paginateTableType = {
+  currentItems: User[]
 }
