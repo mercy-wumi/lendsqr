@@ -8,7 +8,7 @@ const initialState = {
     userId: '',
     userPerPage: '10',
     userOffSet: 0,
-    profileLogin: ''
+    profileLogin: false
 }
 export const UserContext = createContext<{
     state: UserType;

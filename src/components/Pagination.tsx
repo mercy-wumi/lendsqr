@@ -2,9 +2,14 @@ import '../styles/components/Pagination.scss'
 import { useEffect, useState, useContext } from 'react'
 import ReactPaginate from 'react-paginate'
 import { UserContext } from '../context/UserContext'
+import { useLoaderData } from 'react-router-dom'
+import { User } from '../@types/global'
+
 
 const Pagination = () => {
-    const { state: { users, userPerPage }, dispatch } = useContext(UserContext)
+    const users = useLoaderData() as User[]
+
+    const { state: { userPerPage }, dispatch } = useContext(UserContext)
 
     // const endOffset = userOffSet + userPerPage;
     // console.log(`Loading items from ${userOffSet} to ${endOffset}`);

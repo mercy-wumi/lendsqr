@@ -6,7 +6,7 @@ export type Action =
     | { type: 'set_user_id', payload: string }
     | { type: 'set_user_per_page', payload: string }
     | { type: 'set_user_offset', payload: number }
-    | { type: 'profile_to_login', payload: string };
+    | { type: 'profile_to_login', payload: boolean };
 
 export const userReducer = (state: UserType, action: Action) => {
     switch (action.type) {

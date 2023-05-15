@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../styles/components/Sidebar.scss'
 
 import home from '../images/home.png'
@@ -24,6 +24,7 @@ import transac from '../images/transac.png'
 import users from '../images/users.png'
 import whitelist from '../images/whitelist.png'
 import savingProduct from '../images/savingProduct.png'
+import { useState } from 'react'
 
 
 const menus = [
@@ -31,12 +32,12 @@ const menus = [
         heading: 'customers',
         list: [
             {
-                link: '/users',
+                link: '/dashboard/users',
                 img: users,
                 listName: 'users',
             },
             {
-                link: '/',
+                link: '',
                 img: guarantors,
                 listName: 'guarantors',
             },
@@ -149,6 +150,7 @@ const menus = [
     }
 ]
 const Sidebar = () => {
+    const [activeMenu, setActiveMenu] = useState('users')
     return (
         <div className='sidebar' id='side'>
             <div className='menusOrg'>
@@ -167,12 +169,10 @@ const Sidebar = () => {
                         <ul>
                             {menu.list.map((list, index) => (
                                 <li key={index}>
-                                    <NavLink to={list.link} className={({ isActive }) =>
-                                        isActive ? "active" : "menus"
-                                    }>
+                                    <Link to={list.link} className={`${activeMenu === list.listName ? "active" : "menus"}`}>
                                         <img src={list.img} alt="menu icon" />
                                         <span className='menuName'>{list.listName}</span>
-                                    </NavLink>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

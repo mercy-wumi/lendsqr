@@ -23,14 +23,24 @@
   margin: 0;
 }
 
-html,
 body {
   font-family: 'Work Sans', sans-serif;
-}
-
-.app {
   max-width: 1400px;
   margin: 0 auto;
+}
+
+.hideShow {
+  display: none;
+  max-width: 400px;
+  text-align: center;
+  padding: 0 2rem;
+  padding-top: 40%;
+  margin: auto;
+}
+
+.hideShow span {
+  font-weight: 500;
+  font-size: 16px;
 }
 
 #side::-webkit-scrollbar,
@@ -43,4 +53,10 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: #CFCFCF;
   border-radius: 2px;
+}
+
+@media (max-width:1023px) {
+  .hideShow {
+    display: block;
+  }
 }

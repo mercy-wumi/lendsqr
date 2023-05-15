@@ -1,8 +1,16 @@
 .dashboard-page {
+    display: none;
     background: var(--bkg-opacity);
 
     .main-container {
         margin-top: 5rem;
         display: flex;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .dashboard-page {
+        display: block;
     }
 }

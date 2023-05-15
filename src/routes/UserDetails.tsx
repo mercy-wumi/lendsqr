@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react'
 import { Navigate } from "react-router-dom"
-import '../styles/components/UserDetails.scss'
+import '../styles/pages/UserDetails.scss'
 import backArrow from '../images/backArrow.png'
 import MoreOptions from '../components/MoreOptions'
 import profile from '../images/profile.png'
@@ -8,11 +8,6 @@ import star from '../images/star.png'
 import GeneralDetails from '../components/TabComponents/GeneralDetails'
 import { UserContext } from '../context/UserContext'
 
-// export const loader = async () => {
-//     const resp = await fetch('https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users')
-//     const users = await resp.json()
-//     return users
-// }
 
 const tabs = [
     {
@@ -40,7 +35,7 @@ const tabs = [
         activateTab: 'app'
     }]
 const UserDetails = () => {
-    const { state: { userId }, dispatch } = useContext(UserContext)
+    const { state: { userId, user }, dispatch } = useContext(UserContext)
     const [activeTab, setActiveTab] = useState('general')
 
     const [backToUsers, setBackToUsers] = useState(false)
@@ -68,7 +63,7 @@ const UserDetails = () => {
     // }, [])
     return (
         <>
-            {backToUsers && <Navigate to='/users' replace={true} />}
+            {backToUsers && <Navigate to='/dashboard/users' replace={true} />}
             <div className="user-details">
                 <div className="backToUsers">
                     <img src={backArrow} className='backArrow' alt="back Arrow" onClick={handleBackToUsers} />
@@ -89,8 +84,8 @@ const UserDetails = () => {
                             <img src={profile} alt="user profile" />
                         </div>
                         <div className='nameOfUser'>
-                            <span className='name'>Grace Effiom</span>
-                            <span>LSQFf587g90</span>
+                            <span className='name'>{user.profile.firstName} {user.profile.lastName}</span>
+                            <span>{user.userName}</span>
                         </div>
                         <div className='userTier'>
                             <span>User's Tier</span>

@@ -2,11 +2,12 @@ import lendsqrLogo from '../images/lendsqrLogo.png'
 import pablo from '../images/pablo.png'
 import { Navigate } from 'react-router-dom'
 import '../styles/pages/Login.scss'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { UserContext } from '../context/UserContext'
 
 const Login = () => {
+    const { state: { profileLogin }, dispatch } = useContext(UserContext)
 
-    const [login, setLogin] = useState(false)
     const [loginDetails, setLoginDetails] = useState({
         email: '',
         password: ''
@@ -22,12 +23,21 @@ const Login = () => {
     }
 
     const handleSubmit = () => {
-        if (loginDetails.email === '' && loginDetails.password === '') return
-        setLogin(true)
+        if (loginDetails.email === '' && loginDetails.password === '') {
+            alert('fill the input fields')
+            return
+        }
+        dispatch({
+            type: 'profile_to_login',
+            payload: true
+        })
     }
     return (
         <>
-            {login && <Navigate to='/dashboard' replace={true} />}
+            {profileLogin && <Navigate to='/dashboard/users' replace={true} />}
+            <div className="hideShow">
+                <span>You have to be on a larger screen of atleast <span className="font-bold">1024px</span> to view this dashboard</span>
+            </div>
             <div className='login'>
                 <img src={lendsqrLogo} alt="logo" />
                 <div className='login-details'>

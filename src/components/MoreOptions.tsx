@@ -4,7 +4,8 @@ import view from '../images/view.png'
 
 import '../styles/components/MoreOptions.scss'
 import { UserContext } from '../context/UserContext'
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect, useRef } from 'react'
+import { hideMoreOptions } from '../@types/global'
 
 
 const options = [
@@ -21,15 +22,28 @@ const options = [
         option: 'activate user'
     }
 ]
-type idType = {
-    showMoreOptions: boolean
-}
-const MoreOptions: React.FC<idType> = ({ showMoreOptions }) => {
+
+const MoreOptions: React.FC<hideMoreOptions> = ({ showMoreOptions, closeOptions }) => {
+
+    const moreOptionRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        let handler = (e: MouseEvent) => {
+            if (moreOptionRef.current && !moreOptionRef.current.contains(e.target as Node)) {
+                closeOptions()
+            }
+        }
+        document.addEventListener('mousedown', handler)
+        return () => {
+            document.removeEventListener('mousedown', handler)
+        }
+    })
+
     const [show, setShow] = useState(false)
     const { state: { userId }, dispatch } = useContext(UserContext)
 
     return (
-        <div className={`${showMoreOptions ? 'show' : 'hide'} moreOptions`}>
+        <div className={`${showMoreOptions ? 'show' : 'hide'} moreOptions`} ref={moreOptionRef}>
             {options.map((option, index) => (
                 <div className='options' key={index}>
                     <img src={option.img} alt={option.option} className='optionImg' />

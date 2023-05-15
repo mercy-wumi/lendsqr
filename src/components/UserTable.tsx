@@ -47,7 +47,6 @@ const UserTable: React.FC<paginateTableType> = ({ currentItems }) => {
     const first_ten_users = users.slice(0, 10)
 
     const filterMenuRef = useRef(null)
-    const moreOptionsRef = useRef()
 
 
     console.log(users)
@@ -63,6 +62,9 @@ const UserTable: React.FC<paginateTableType> = ({ currentItems }) => {
     }
     const handleOnClickOutSide = () => {
         setShowFilter(false)
+    }
+    const handleOnClickOutSideOption = () => {
+        setShowMoreOptions(false)
     }
     const handleFilter = (id: string) => {
         setShowFilter(true)
@@ -84,14 +86,17 @@ const UserTable: React.FC<paginateTableType> = ({ currentItems }) => {
                 payload: user
             })
             console.log('fetching...')
-            if (user) { setClicked(true) }
+            if (user && moreOptions == '') {
+                console.log(moreOptions)
+                setClicked(true)
+            }
         }
         loader()
     }
 
     return (
         <>
-            {clicked && <Navigate to='/userdetails' replace={true} />}
+            {clicked && <Navigate to='/dashboard/userdetails' replace={true} />}
             <div className='user-table'>
                 <table>
                     <thead>
@@ -123,7 +128,7 @@ const UserTable: React.FC<paginateTableType> = ({ currentItems }) => {
                                 <td>
                                     <img src={more} alt="more option" onClick={() => handleShowOptions(user.id)} />
                                     <div className='showOptions'>
-                                        {moreOptions === user.id && <MoreOptions showMoreOptions={showMoreOptions} />}
+                                        {moreOptions === user.id && <MoreOptions showMoreOptions={showMoreOptions} closeOptions={handleOnClickOutSideOption} />}
                                     </div>
                                 </td>
                             </tr>

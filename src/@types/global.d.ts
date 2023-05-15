@@ -33,7 +33,7 @@ export type UserType = {
     userId: string,
     userPerPage: string,
     userOffSet: number,
-    profileLogin: string,
+    profileLogin: boolean,
 }
 
 export interface User {
@@ -104,6 +104,11 @@ export type btn = {
 export type hideFilter = {
     showFilter: boolean,
     close: () => void
+}
+
+export type hideMoreOptions = {
+    showMoreOptions: boolean,
+    closeOptions: () => void
 }
 
 // paginate type

@@ -6,32 +6,33 @@ import reportWebVitals from './reportWebVitals';
 import Login from './routes/Login';
 import Dashboard from './routes/Dashboard';
 import UserDetails from './routes/UserDetails';
-import Users from './routes/Users';
+import Users, { loaderUsers as usersLoader } from './routes/Users';
 import UserContextProvider from './context/UserContext'
-// import { loader as userLoader } from './routes/Users'
+import ErrorPage from './components/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/dashboard",
     element: <Dashboard />,
+    errorElement: <ErrorPage />,
     children: [
       {
-        path: "/users",
+        path: "/dashboard/users",
         element: <Users />,
-        // loader: userLoader,
+        loader: usersLoader,
       },
       {
-        path: "/userdetails",
+        path: "/dashboard/userdetails",
         element: <UserDetails />,
-        // loader: userLoader
       },
     ]
   },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-], { basename: '/dashboard' })
+])
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
