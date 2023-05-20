@@ -44,7 +44,6 @@ const UserTable: React.FC<paginateTableType> = ({ currentItems }) => {
 
     const { state: { users }, dispatch } = useContext(UserContext)
 
-    const first_ten_users = users.slice(0, 10)
 
     const filterMenuRef = useRef(null)
 
@@ -65,6 +64,8 @@ const UserTable: React.FC<paginateTableType> = ({ currentItems }) => {
     }
     const handleOnClickOutSideOption = () => {
         setShowMoreOptions(false)
+        setMoreOptions('')
+        setClicked(false)
     }
     const handleFilter = (id: string) => {
         setShowFilter(true)
@@ -86,7 +87,7 @@ const UserTable: React.FC<paginateTableType> = ({ currentItems }) => {
                 payload: user
             })
             console.log('fetching...')
-            if (user && moreOptions == '') {
+            if (user) {
                 console.log(moreOptions)
                 setClicked(true)
             }
@@ -96,7 +97,7 @@ const UserTable: React.FC<paginateTableType> = ({ currentItems }) => {
 
     return (
         <>
-            {clicked && <Navigate to='/dashboard/userdetails' replace={true} />}
+            {clicked && moreOptions === '' && <Navigate to='/dashboard/userdetails' replace={true} />}
             <div className='user-table'>
                 <table>
                     <thead>
