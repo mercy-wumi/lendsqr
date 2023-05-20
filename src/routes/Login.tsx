@@ -23,8 +23,8 @@ const Login = () => {
     }
 
     const handleSubmit = () => {
-        if (loginDetails.email === '' && loginDetails.password === '') {
-            alert('fill the input fields')
+        if (loginDetails.email === '' || loginDetails.password === '') {
+            alert('fill in all the input fields')
             return
         }
         dispatch({

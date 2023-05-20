@@ -11,9 +11,6 @@ const Pagination = () => {
 
     const { state: { userPerPage }, dispatch } = useContext(UserContext)
 
-    // const endOffset = userOffSet + userPerPage;
-    // console.log(`Loading items from ${userOffSet} to ${endOffset}`);
-    // const currentItems = users.slice(userOffSet, endOffset);
     const pageCount = Math.ceil(users.length / parseInt(userPerPage));
 
     // Invoke when user click to request another page.

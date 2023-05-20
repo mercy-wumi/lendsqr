@@ -47,20 +47,6 @@ const UserDetails = () => {
     const handleClick = (active: string) => {
         setActiveTab(active)
     }
-    // const loaderUser = async () => {
-    //     const resp = await fetch(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${userId}`)
-    //     const user = await resp.json()
-    //     console.log(user)
-    //     dispatch({
-    //         type: 'get_user',
-    //         payload: user
-    //     })
-    // }
-    // console.log(userId)
-
-    // useEffect(() => {
-    //     loaderUser()
-    // }, [])
     return (
         <>
             {backToUsers && <Navigate to='/dashboard/users' replace={true} />}
@@ -76,8 +62,6 @@ const UserDetails = () => {
                         <button className='activate'>activate user</button>
                     </div>
                 </div>
-                <div></div>
-                {/* <MoreOptions /> */}
                 <div className='profile'>
                     <div className='userInfo'>
                         <div className='userImg'>

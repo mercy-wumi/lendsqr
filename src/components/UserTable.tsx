@@ -6,9 +6,8 @@ import more from '../images/more.png'
 import filter from '../images/filter.png'
 import StatusBtn from './StatusBtn'
 
-import { Navigate, useLoaderData } from "react-router-dom"
-import { User } from '../@types/global'
-import { useState, useLayoutEffect, useContext, useRef, useEffect } from 'react'
+import { Navigate } from "react-router-dom"
+import { useState, useContext, useRef } from 'react'
 import { UserContext } from '../context/UserContext'
 import { paginateTableType } from '../@types/global'
 
@@ -48,7 +47,6 @@ const UserTable: React.FC<paginateTableType> = ({ currentItems }) => {
     const filterMenuRef = useRef(null)
 
 
-    console.log(users)
     const status = ['active', 'pending', 'inactive', 'blacklisted']
     const [id, setId] = useState('')
     const [headFilter, setHeadFilter] = useState('')
@@ -88,7 +86,6 @@ const UserTable: React.FC<paginateTableType> = ({ currentItems }) => {
             })
             console.log('fetching...')
             if (user) {
-                console.log(moreOptions)
                 setClicked(true)
             }
         }

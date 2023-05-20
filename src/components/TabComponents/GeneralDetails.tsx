@@ -7,9 +7,7 @@ import { useLoaderData } from 'react-router-dom'
 
 const GeneralDetails = () => {
     const { state: { user }, dispatch } = useContext(UserContext)
-    console.log(user)
 
-    // const {user} = useLoaderData() as User
     return (
         <>
             {user ?

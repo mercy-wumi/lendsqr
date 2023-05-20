@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import Card from '../components/Card'
 import '../styles/pages/Users.scss'
 
@@ -48,47 +48,14 @@ export const loaderUsers = async () => {
     return users
 }
 
-// export const loaderUser = async () => {
-//     const resp = await fetch(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${userId}`)
-//     const user = await resp.json()
-//     // dispatch({
-//     //     type: 'get_user',
-//     //     payload: user
-//     // })
-//     return user
-// }
-
-
 const Users = () => {
     const users = useLoaderData() as User[]
-    console.log(users)
-
-    // const { state: { userId }, dispatch } = useContext(UserContext)
 
     const { state: { userPerPage, userOffSet }, dispatch } = useContext(UserContext)
 
     const endOffset = userOffSet + parseInt(userPerPage);
     console.log(`Loading items from ${userOffSet} to ${endOffset}`);
     const currentItems = users.slice(userOffSet, endOffset);
-
-    // useEffect(() => {
-    //     dispatch({
-    //         type: 'get_all_users',
-    //         payload: users
-    //     })
-    // })
-
-    // useEffect(() => {
-    //     const loader = async () => {
-    //         const resp = await fetch('https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users')
-    //         const users = await resp.json()
-    //         dispatch({
-    //             type: 'get_all_users',
-    //             payload: users
-    //         })
-    //     }
-    //     loader()
-    // }, [])
 
     return (
         <>
